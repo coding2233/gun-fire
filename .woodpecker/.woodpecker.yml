@@ -1,0 +1,12 @@
+pipeline:
+  build:
+    image: unityci/editor:ubuntu-2021.3.1f1-android-1.0.1
+    commands:
+        - wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+        - dpkg -i packages-microsoft-prod.deb
+        - apt update && apt install -y dotnet-runtime-6.0
+        - export UNITY_PATH=/opt/unity
+        - export EXEC_METHOD=PATCH
+        - dotnet .woodpecker/unihacker/unihacker.dll
+        - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -quit -projectPath $(pwd) -logFile /dev/stdout -batchmode -nographics -buildTarget Android -executeMethod CommandBuilder.BuildPlayer
+        - ls -alh

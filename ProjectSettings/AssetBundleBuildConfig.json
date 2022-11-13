@@ -1,0 +1,1 @@
+{"Version":16,"BuildPath":"ServerData","CompressOptions":2,"BuildTarget":13,"OtherResources":"","SupportOldAppVersions":"1.0","OldResourceUrl":"","PostCommand":"scp -r ServerData/ root@netlighting.cn:/usr/share/caddy/Gunfire"}

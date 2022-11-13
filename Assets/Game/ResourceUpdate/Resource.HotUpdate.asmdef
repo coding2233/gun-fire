@@ -1,0 +1,19 @@
+{
+    "name": "Resouce.HotUpdate",
+    "rootNamespace": "",
+    "references": [
+        "GUID:12f9df9a415a47d47906a3b3e57b849b",
+        "GUID:238e09bde6a92ed4b9ceaf592fafd06a",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:13ba8ce62aa80c74598530029cb2d649"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

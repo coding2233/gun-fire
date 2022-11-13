@@ -1,0 +1,25 @@
+function OnStart()
+	RunHotFix();
+end
+
+
+function OnUpdate(deltaTime)
+end
+
+function OnClose()
+end
+
+
+function RunHotFix()
+	-- CS.UnityEngine.Debug.Log("HotFixMain.OnStart")
+	-- xlua.hotfix(CS.Wanderer.ResourceSerivce, 'TestprivateHotFix', function(self)
+	-- 	CS.UnityEngine.Debug.Log("HotFixMain.OnStart - TestprivateHotFix")
+	-- end)
+
+	-- xlua.hotfix(CS.Wanderer.ResourceSerivce, 'TestPublicHotFix', function(self)
+	-- 	CS.UnityEngine.Debug.Log("HotFixMain.OnStart - TestPublicHotFix")
+	-- 	self:TestprivateHotFix()
+
+	-- 	CS.UnityEngine.Debug.Log("HotFixMain.OnStart - Test-----------------------")
+	-- end)
+end
