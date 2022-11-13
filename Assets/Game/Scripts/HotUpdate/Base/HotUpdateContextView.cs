@@ -11,7 +11,9 @@ namespace Wanderer
     {
         private void Awake()
         {
-            Debug.Log("HotUpdateContextView -- Awake");
+            Log.Info("HotUpdateContextView -- Awake");
+            //热更里面加调试面板，方便更新
+            gameObject.AddComponent<DebuggerManager>();
 
             context = new HotUpdateContext(this,ContextStartupFlags.MANUAL_LAUNCH);
 
