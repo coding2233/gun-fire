@@ -14,10 +14,6 @@ namespace Wanderer
             Log.Info("FrameworkContext");
         }
 
-        public FrameworkContext(ContextView contextView,bool autoMapping) : base(contextView, autoMapping)
-        {
-            Log.Info("FrameworkContext");
-        }
 
         protected override void mapBindings()
         {

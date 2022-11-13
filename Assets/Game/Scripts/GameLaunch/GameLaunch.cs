@@ -3,6 +3,7 @@ using strange.extensions.context.impl;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Wanderer
             DontDestroyOnLoad(this);
 
             //重定向日志输出
+            Log.Logger = new DefaultLog(Path.Combine(Application.persistentDataPath,"logs"));
+
             //UnitySystemConsoleRedirector.Redirect();
             //框架初始化成功
             context = new FrameworkContext(this);
@@ -29,13 +32,10 @@ namespace Wanderer
 
         protected override void OnDestroy()
         {
+            Log.Dispose();
             base.OnDestroy();
             context = null;
         }
-        //private void Start()
-        //{
-        //    (context as FrameworkContext).GameEntrance();
-        //    Log.Info("GameEntrance");
-        //}
+      
     }
 }
