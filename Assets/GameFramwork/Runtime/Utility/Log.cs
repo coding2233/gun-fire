@@ -199,7 +199,12 @@ namespace Wanderer
 
         public void Dispose()
         {
-            m_logFileStream.Dispose();
+            if (m_logFileStream != null)
+            {
+                m_logFileStream.Close();
+                m_logFileStream?.Dispose();
+                m_logFileStream = null;
+            }
             m_logStringBuilder.Clear();
 
             m_logFileStream = null;
