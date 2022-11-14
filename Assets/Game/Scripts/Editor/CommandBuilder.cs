@@ -9,14 +9,18 @@ using System.IO;
 
 public class CommandBuilder 
 {
-
+    [MenuItem("Tools/Command/SetHybridCLR")]
     public static void SetHybridCLR()
     {
         //安装HybridCLR
         var installController = new InstallerController();
         if (!installController.HasInstalledHybridCLR())
         {
-            installController.InitHybridCLR(installController.Il2CppBranch, installController.Il2CppInstallDirectory);
+            string il2CppInstallDirectory = installController.Il2CppInstallDirectory;
+            #if UNITY_EDITOR_LINUX
+                il2CppInstallDirectory = il2CppInstallDirectory.Replace("Unity/Contents/il2cpp", "Data/il2cpp");
+            #endif
+            installController.InitHybridCLR(installController.Il2CppBranch, il2CppInstallDirectory);
         }
         //生成所有的的文件
         PrebuildCommand.GenerateAll();
