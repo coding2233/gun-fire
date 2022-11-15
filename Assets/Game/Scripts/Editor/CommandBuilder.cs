@@ -17,9 +17,9 @@ public class CommandBuilder
         if (!installController.HasInstalledHybridCLR())
         {
             #if UNITY_EDITOR_LINUX
-                installController.Il2CppInstallDirectory = installController.Il2CppInstallDirectory.Replace("Unity/Contents/il2cpp", "Data/il2cpp");
-                installController.Il2CppInstallDirectory = "/opt/unity/Editor/Data/il2cpp";
+                installController.Il2CppInstallDirectory = $"{EditorApplication.applicationPath}/Data/il2cpp";
             #endif
+            Debug.Log($"HybridCLR install path for unity linux editor: {installController.Il2CppInstallDirectory}  ==> {installController.Il2CppBranch}");
             installController.InitHybridCLR(installController.Il2CppBranch, installController.Il2CppInstallDirectory);
         }
         AssetDatabase.Refresh();
