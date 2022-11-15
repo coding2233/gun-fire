@@ -12,8 +12,7 @@ public class BuildProcessorSetEnv
     public static void Setup()
     {
         /// unity允许使用UNITY_IL2CPP_PATH环境变量指定il2cpp的位置，因此我们不再直接修改安装位置的il2cpp，
-        Environment.SetEnvironmentVariable("UNITY_IL2CPP_PATH", $"{Application.dataPath}/hybrid_clr_data/libil2cpp");
-        
+        // Environment.SetEnvironmentVariable("UNITY_IL2CPP_PATH", $"{Application.dataPath}/hybrid_clr_data/libil2cpp");
     }
 
     [MenuItem("Tools/Build")]
