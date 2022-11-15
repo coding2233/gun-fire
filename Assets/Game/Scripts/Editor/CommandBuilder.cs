@@ -30,7 +30,7 @@ public class CommandBuilder
     [MenuItem("Tools/Command/BuildPlayer - Android")]
     public static void BuildPlayer()
     {
-        //EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+        EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
 
         SetHybridCLR();
 

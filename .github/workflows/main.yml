@@ -42,7 +42,6 @@ jobs:
             wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
             dpkg -i packages-microsoft-prod.deb
             apt update && apt install -y dotnet-runtime-6.0
-            ls -alh .ci/unihacker
             export UNITY_PATH=/opt/unity
             export EXEC_METHOD=PATCH
             dotnet .woodpecker/unihacker/unihacker.dll
