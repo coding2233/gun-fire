@@ -37,7 +37,6 @@ public class CommandBuilder
     public static void BuildPlayer()
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
-
         SetHybridCLR();
 
         if (!Directory.Exists("build"))
