@@ -21,6 +21,9 @@ public class CommandBuilder
                 installController.Il2CppInstallDirectory = installController.Il2CppInstallDirectory.Replace("//", "/");
                 installController.Il2CppInstallDirectory = installController.Il2CppInstallDirectory.Replace("\\", "/");
             #endif
+            
+            Debug.Log($"HybridCLR il2cp exists: {Directory.Exists(installController.Il2CppInstallDirectory)}");
+
             Debug.Log($"HybridCLR install path for unity linux editor: {installController.Il2CppInstallDirectory}  ==> {installController.Il2CppBranch}");
             installController.InitHybridCLR(installController.Il2CppBranch, installController.Il2CppInstallDirectory);
         }
