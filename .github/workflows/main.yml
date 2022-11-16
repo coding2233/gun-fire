@@ -45,6 +45,7 @@ jobs:
             export UNITY_PATH=/opt/unity
             export EXEC_METHOD=PATCH
             dotnet .woodpecker/unihacker/unihacker.dll
+            cp -r /opt/unity /opt/2021.3.1f1
             mkdir build
             xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -quit -projectPath $(pwd) -logFile /dev/stdout -nographics -buildTarget Android -executeMethod CommandBuilder.BuildPlayer
             ls -alh build/
