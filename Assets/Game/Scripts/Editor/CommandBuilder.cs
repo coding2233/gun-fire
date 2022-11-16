@@ -20,7 +20,6 @@ public class CommandBuilder
                 installController.Il2CppInstallDirectory = $"{Path.GetDirectoryName(EditorApplication.applicationPath)}/Data/il2cpp";
                 installController.Il2CppInstallDirectory = installController.Il2CppInstallDirectory.Replace("//", "/");
                 installController.Il2CppInstallDirectory = installController.Il2CppInstallDirectory.Replace("\\", "/");
-                installController.Il2CppInstallDirectory = "/opt/2021.3.1f1/Editor/Data/il2cpp";
             #endif
             
             Debug.Log($"HybridCLR il2cp exists: {Directory.Exists(installController.Il2CppInstallDirectory)}");
