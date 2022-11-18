@@ -5,7 +5,7 @@ pipeline:
     settings:
       source: http://192.168.31.193:7899/chfs/shared/files/cache/gunfire_android.tar.gz
 
-  build:
+  build-android:
     image: unityci/editor:ubuntu-2021.3.1f1-android-1.0.1
     commands:
         - wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
