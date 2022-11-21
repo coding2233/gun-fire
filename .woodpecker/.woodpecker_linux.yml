@@ -1,0 +1,36 @@
+pipeline:
+  
+  cache-download:
+    image: plugins/download
+    settings:
+      source: http://192.168.31.193:7899/chfs/shared/files/cache/gunfire_android.tar.gz
+
+  build-android:
+    image: unityci/editor:2021.3.13f1-linux-il2cpp-1
+    commands:
+        - wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+        - dpkg -i packages-microsoft-prod.deb
+        - apt update && apt install -y dotnet-runtime-6.0
+        - export UNITY_PATH=/opt/unity
+        - export EXEC_METHOD=PATCH
+        - dotnet .woodpecker/unihacker/unihacker.dll
+        - tar -zxvf gunfire_android.tar.gz & rm gunfire_android.tar.gz
+        - xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' unity-editor -quit -projectPath $(pwd) -logFile /dev/stdout -nographics -executeMethod CommandBuilder.BuildPlayer
+        - ls -alh build
+        - tar -zcvf gunfire_linux.tar.gz Library
+  
+  push:
+    image: vividboarder/drone-webdav
+    settings:
+      file: build/Gunfire.apk
+      destination: http://192.168.31.193:7899/webdav/files/cache/
+      username: admin
+      password: admin123
+
+  cache-download:
+    image: vividboarder/drone-webdav
+    settings:
+      file: gunfire_linux.tar.gz
+      destination: http://192.168.31.193:7899/webdav/files/cache/
+      username: admin
+      password: admin123

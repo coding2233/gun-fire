@@ -33,10 +33,10 @@ public class CommandBuilder
         AssetDatabase.Refresh();
     }
     
-    [MenuItem("Tools/Command/BuildPlayer - Android")]
+    [MenuItem("Tools/Command/BuildPlayer - Linux")]
     public static void BuildPlayer()
     {
-        EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+        //EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
         SetHybridCLR();
 
         if (!Directory.Exists("build"))
@@ -44,7 +44,7 @@ public class CommandBuilder
             Directory.CreateDirectory("build");
         }
 
-        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"build/{Application.productName}.apk", BuildTarget.Android, BuildOptions.None);
+        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"build/{Application.productName}", BuildTarget.StandaloneLinux64, BuildOptions.None);
     }
 
 
